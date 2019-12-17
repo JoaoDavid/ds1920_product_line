@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="showhiddenfeatures" value="true"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="App">
+			<alt mandatory="true" name="Idioma">
+				<graphics key="collapsed" value="false"/>
+				<feature name="Português"/>
+				<feature name="Inglês"/>
+			</alt>
+			<or mandatory="true" name="Output">
+				<graphics key="collapsed" value="false"/>
+				<feature name="Ecra"/>
+				<feature name="VozSintetizada"/>
+				<feature name="SinaisDeLuzes">
+					<graphics key="collapsed" value="false"/>
+				</feature>
+			</or>
+			<and mandatory="true" name="Evento">
+				<graphics key="collapsed" value="false"/>
+				<or mandatory="true" name="Alerta">
+					<graphics key="collapsed" value="false"/>
+					<feature name="Movimento"/>
+					<feature name="Inatividade"/>
+				</or>
+			</and>
+			<feature mandatory="true" name="ListaContactos"/>
+			<feature mandatory="true" name="EnvioMensagem"/>
+			<and name="DispositivoVestivel">
+				<feature name="Botao"/>
+				<feature name="DetetorDeMovimento"/>
+			</and>
+			<feature name="LampadasInteligentes"/>
+			<feature name="IndicadorLuminoso"/>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<imp>
+				<var>SinaisDeLuzes</var>
+				<disj>
+					<var>LampadasInteligentes</var>
+					<var>IndicadorLuminoso</var>
+				</disj>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>
