@@ -24,22 +24,21 @@
 					<graphics key="collapsed" value="false"/>
 				</feature>
 			</or>
-			<and mandatory="true" name="Evento">
+			<or name="Alerta">
 				<graphics key="collapsed" value="false"/>
-				<or mandatory="true" name="Alerta">
-					<graphics key="collapsed" value="false"/>
-					<feature name="Movimento"/>
-					<feature name="Inatividade"/>
-				</or>
-			</and>
+				<feature name="Movimento"/>
+				<feature name="Inatividade"/>
+			</or>
+			<feature mandatory="true" name="Aviso"/>
 			<feature mandatory="true" name="ListaContactos"/>
 			<feature mandatory="true" name="EnvioMensagem"/>
-			<and name="DispositivoVestivel">
+			<or name="DispositivoVestivel">
 				<feature name="Botao"/>
-				<feature name="DetetorDeMovimento"/>
-			</and>
+				<feature name="MonitorDeAtividade"/>
+				<feature name="IndicadorLuminoso"/>
+			</or>
 			<feature name="LampadasInteligentes"/>
-			<feature name="IndicadorLuminoso"/>
+			<feature name="DetetorMovimento"/>
 		</and>
 	</struct>
 	<constraints>
@@ -49,6 +48,18 @@
 				<disj>
 					<var>LampadasInteligentes</var>
 					<var>IndicadorLuminoso</var>
+				</disj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<disj>
+					<var>DetetorMovimento</var>
+					<var>MonitorDeAtividade</var>
+				</disj>
+				<disj>
+					<var>Movimento</var>
+					<var>Inatividade</var>
 				</disj>
 			</imp>
 		</rule>

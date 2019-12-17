@@ -2,21 +2,22 @@
 <configuration>
 	<feature automatic="selected" name="App"/>
 	<feature automatic="selected" name="Idioma"/>
-	<feature manual="selected" name="PortuguÃªs"/>
-	<feature automatic="unselected" name="InglÃªs"/>
+	<feature manual="selected" name="Português"/>
+	<feature automatic="unselected" name="Inglês"/>
 	<feature automatic="selected" name="Output"/>
 	<feature manual="selected" name="Ecra"/>
 	<feature name="VozSintetizada"/>
 	<feature name="SinaisDeLuzes"/>
-	<feature automatic="selected" name="Evento"/>
 	<feature automatic="selected" manual="selected" name="Alerta"/>
 	<feature manual="selected" name="Movimento"/>
 	<feature manual="selected" name="Inatividade"/>
+	<feature name="Aviso"/>
 	<feature automatic="selected" name="ListaContactos"/>
 	<feature automatic="selected" name="EnvioMensagem"/>
 	<feature automatic="selected" manual="selected" name="DispositivoVestivel"/>
-	<feature manual="selected" name="Botao"/>
-	<feature manual="selected" name="DetetorDeMovimento"/>
-	<feature manual="selected" name="LampadasInteligentes"/>
+	<feature name="Botao"/>
+	<feature manual="selected" name="MonitorDeAtividade"/>
 	<feature manual="selected" name="IndicadorLuminoso"/>
+	<feature manual="selected" name="LampadasInteligentes"/>
+	<feature name="DetetorMovimento"/>
 </configuration>
