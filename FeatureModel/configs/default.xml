@@ -2,8 +2,8 @@
 <configuration>
 	<feature automatic="selected" name="App"/>
 	<feature automatic="selected" name="Idioma"/>
-	<feature manual="selected" name="Português"/>
-	<feature automatic="unselected" name="Inglês"/>
+	<feature automatic="unselected" name="PortuguÃªs"/>
+	<feature manual="selected" name="InglÃªs"/>
 	<feature automatic="selected" name="Output"/>
 	<feature manual="selected" name="Ecra"/>
 	<feature name="VozSintetizada"/>
@@ -11,7 +11,7 @@
 	<feature automatic="selected" manual="selected" name="Alerta"/>
 	<feature manual="selected" name="Movimento"/>
 	<feature manual="selected" name="Inatividade"/>
-	<feature name="Aviso"/>
+	<feature automatic="selected" name="Aviso"/>
 	<feature automatic="selected" name="ListaContactos"/>
 	<feature automatic="selected" name="EnvioMensagem"/>
 	<feature automatic="selected" manual="selected" name="DispositivoVestivel"/>
