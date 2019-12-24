@@ -26,8 +26,14 @@ public class MotionDetector {
             	MovementDetectedEvent movementDetectedEvent = 
                 		new MovementDetectedEvent(location); 
                 bezirk.sendEvent(movementDetectedEvent);
+                System.out.println("Published event " + movementDetectedEvent);
             }
         }, 1000, 1000);
+	}
+	
+	public static void main(String[] args) {
+		MotionDetector motionDetector = new MotionDetector("Cozinha");
+		motionDetector.startMonitoringMovement();
 	}
 
 }
