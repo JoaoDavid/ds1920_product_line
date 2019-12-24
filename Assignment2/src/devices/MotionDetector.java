@@ -28,7 +28,7 @@ public class MotionDetector {
                 bezirk.sendEvent(movementDetectedEvent);
                 System.out.println("Published event " + movementDetectedEvent);
             }
-        }, 1000, 1000);
+        }, 1000, 5000);
 	}
 	
 	public static void main(String[] args) {
