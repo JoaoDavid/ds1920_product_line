@@ -1,4 +1,5 @@
 /bin/
+*.sqlite
 # Compiled class file
 *.class
 

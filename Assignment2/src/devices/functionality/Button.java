@@ -1,5 +1,8 @@
 package devices.functionality;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 
@@ -18,9 +21,17 @@ public class Button {
 	public void pressButton() {
         final ButtonPressEvent buttonPressEvent = new ButtonPressEvent();
 
-        //sends the event
         bezirk.sendEvent(buttonPressEvent);
-        System.err.println("Published button press event: " + buttonPressEvent.toString());
+        System.out.println("Published button press event: " + buttonPressEvent.toString());
+    }
+	
+	public void pressButtonPeriodicly(){
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+            	pressButton();
+            }
+        }, 0, 10000);
     }
 
 }
