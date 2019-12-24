@@ -5,14 +5,14 @@ import java.time.LocalTime;
 
 import contact.Contact;
 
-public class Warning {
+public class Aviso {
 	private String message;
 	private LocalDateTime from;
 	private LocalDateTime to;
 	private LocalTime period;
 	private Contact contact;
 	
-	public Warning (String message, LocalDateTime from, LocalDateTime to, LocalTime period, Contact contact) {
+	public Aviso (String message, LocalDateTime from, LocalDateTime to, LocalTime period, Contact contact) {
 		this.message = message;
 		this.from = from;
 		this.to = to;
