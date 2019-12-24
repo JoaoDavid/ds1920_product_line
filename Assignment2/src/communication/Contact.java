@@ -1,6 +1,7 @@
-package contact;
+package communication;
 
 public class Contact {
+	
 	public String name;
 	public int number;
 	

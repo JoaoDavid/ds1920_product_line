@@ -1,11 +1,14 @@
 package app;
 
+import java.util.List;
+
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 import com.bezirk.middleware.messages.Event;
 import com.bezirk.middleware.messages.EventSet;
 
+import communication.Contact;
 import events.ActivityEvent;
 import events.ButtonPressEvent;
 import events.LightSignalEvent;
@@ -14,12 +17,17 @@ import events.MovementDetectedEvent;
 public class App {	
 	
 	private Bezirk bezirk;
+	private List<Contact> contacts;
 
 	public App() {
 		BezirkMiddleware.initialize();
 		bezirk = BezirkMiddleware.registerZirk("App");
 	}
 	
+	public void addContact(String name, int number) {
+		contacts.add(new Contact(name, number));
+	}
+		
 	public void subscribeEvents() {
 		final EventSet eventSet = new EventSet(MovementDetectedEvent.class, ButtonPressEvent.class, ActivityEvent.class);
 
