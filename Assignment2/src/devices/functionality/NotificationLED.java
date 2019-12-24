@@ -1,4 +1,4 @@
-package devices;
+package devices.functionality;
 
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.addressing.ZirkEndPoint;
@@ -8,15 +8,13 @@ import com.bezirk.middleware.messages.EventSet;
 
 import events.LightSignalEvent;
 
-public class SmartLamp {
+public class NotificationLED {
 	
 	private Bezirk bezirk;
-	private String location;
 	
-	public SmartLamp(String location) {
-		this.location = location;
+	public NotificationLED() {
 		BezirkMiddleware.initialize();
-        bezirk = BezirkMiddleware.registerZirk("Smart Lamp");		
+        bezirk = BezirkMiddleware.registerZirk("Wearable's Notification LED");		
 	}
 	
 	public void subscribeLightSingnalEvents() {
@@ -32,15 +30,6 @@ public class SmartLamp {
 			}
 		});
         bezirk.subscribe(lightSignalEvents);
-	}
-	
-	public String getLocation() {
-		return location;
-	}
-
-	public static void main(String[] args) {
-		SmartLamp smartLamp = new SmartLamp("Bedroom");
-		smartLamp.subscribeLightSingnalEvents();
 	}
 
 }

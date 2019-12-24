@@ -14,7 +14,7 @@ public class ActivityTracker {
 	
 	public ActivityTracker() {
 		BezirkMiddleware.initialize();
-        bezirk = BezirkMiddleware.registerZirk("Activity Tracker");		
+        bezirk = BezirkMiddleware.registerZirk("Wearable's Activity Tracker");		
 	}
 	
 	public void startTrackingActivity() {

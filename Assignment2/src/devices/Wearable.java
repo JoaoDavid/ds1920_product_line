@@ -2,6 +2,7 @@ package devices;
 
 import devices.functionality.ActivityTracker;
 import devices.functionality.Button;
+import devices.functionality.NotificationLED;
 
 public class Wearable {
 	
@@ -11,5 +12,8 @@ public class Wearable {
 		
 		Button button = new Button();
 		button.pressButtonPeriodicly();
+		
+		NotificationLED notificationLed = new NotificationLED();
+		notificationLed.subscribeLightSingnalEvents();
 	}
 }

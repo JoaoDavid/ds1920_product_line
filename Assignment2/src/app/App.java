@@ -8,6 +8,7 @@ import com.bezirk.middleware.messages.EventSet;
 
 import events.ActivityEvent;
 import events.ButtonPressEvent;
+import events.LightSignalEvent;
 import events.MovementDetectedEvent;
 
 public class App {	
@@ -39,10 +40,16 @@ public class App {
 		});
         bezirk.subscribe(eventSet);
 	}
+	
+	public void sendLightSignal() {
+		final LightSignalEvent lightSignalEvent = new LightSignalEvent();
+        bezirk.sendEvent(lightSignalEvent);
+	}
 
 	public static void main(String[] args) {
 		App app = new App();
 		app.subscribeEvents();
+		app.sendLightSignal();
 	}
 
 }
