@@ -14,14 +14,14 @@ import events.ButtonPressEvent;
 import events.LightSignalEvent;
 import events.MovementDetectedEvent;
 
-public class App {	
+public class Controller {	
 	
 	private Bezirk bezirk;
 	private List<Contact> contacts;
 
-	public App() {
+	public Controller() {
 		BezirkMiddleware.initialize();
-		bezirk = BezirkMiddleware.registerZirk("App");
+		bezirk = BezirkMiddleware.registerZirk("Controller");
 	}
 	
 	public void addContact(String name, int number) {
@@ -55,7 +55,7 @@ public class App {
 	}
 
 	public static void main(String[] args) {
-		App app = new App();
+		Controller app = new Controller();
 		app.subscribeEvents();
 		app.sendLightSignal();
 	}
