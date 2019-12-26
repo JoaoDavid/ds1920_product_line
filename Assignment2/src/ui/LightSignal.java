@@ -1,4 +1,4 @@
-package output;
+package ui;
 
 public class LightSignal {
 
