@@ -12,6 +12,10 @@ public class I18N {
 		Locale locale = new Locale(language, country);
 		this.bundle = ResourceBundle.getBundle("i18n/Messages", locale);
 	}
+
+	private String getString(Messages key) {
+		return bundle.getString(key.toString());
+	}
 	
 	/***  SINGLETON ***/
 	
@@ -26,8 +30,8 @@ public class I18N {
 	}
 
 	/***  SERVICES  ***/
-/*
+
 	public static String getString(Messages key, String... args) {
 		return MessageFormat.format(instance.getString(key), (Object[]) args);
-	}*/
+	}
 }
