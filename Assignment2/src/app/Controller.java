@@ -1,12 +1,16 @@
 package app;
 
+import java.time.LocalDateTime;
+
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 import com.bezirk.middleware.messages.Event;
 import com.bezirk.middleware.messages.EventSet;
 
+import communication.Contact;
 import communication.ContactList;
+import communication.WarningManager;
 import events.ActivityEvent;
 import events.ButtonPressEvent;
 import events.LightSignalEvent;
@@ -16,11 +20,14 @@ public class Controller {
 	
 	private Bezirk bezirk;
 	private ContactList contacts;//TODO must be injected
+	private WarningManager warnMan;
 
 	public Controller() {
 		BezirkMiddleware.initialize();
 		bezirk = BezirkMiddleware.registerZirk("Controller");
 		contacts = new ContactList(); //TODO remove afterwards
+		warnMan = new WarningManager();
+		warnMan.addNewWarning("ola", LocalDateTime.of(2019, 12, 26, 18, 50), LocalDateTime.of(2019, 12, 26, 18, 51), 3000, new Contact("teste", 1, true));
 	}
 		
 	public void subscribeEvents() {
