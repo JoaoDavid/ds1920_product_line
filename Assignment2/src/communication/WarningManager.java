@@ -1,7 +1,6 @@
 package communication;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Timer;
@@ -15,6 +14,15 @@ public class WarningManager {
 		timer = new Timer();
 	}
 	
+	/**
+	 * Adds a new warning to be sent every period milliseconds
+	 * 
+	 * @param message
+	 * @param from
+	 * @param to
+	 * @param period frequency of the warning being sent, in milliseconds 
+	 * @param contact
+	 */
 	public void addNewWarning(String message, LocalDateTime from, LocalDateTime to, long period, Contact contact) {
 		Date date = Date.from(from.atZone(ZoneId.systemDefault()).toInstant());
 		timer.schedule(new TimerTask() {
@@ -22,10 +30,9 @@ public class WarningManager {
             public void run() {
             	if(LocalDateTime.now().isAfter(to)) {
             		this.cancel();
-            	} else {
-            		Warning warning = new Warning(message, from, to, period, contact);
-            		warning.warn();
-            		System.out.println("ENVIAR AVISO");
+            	} else {          
+            		String message = "08:00 - Tomar antibiótico";
+            		contact.sendWarning(message);
             	}                
             }
         }, date, period);
