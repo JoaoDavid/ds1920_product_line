@@ -29,6 +29,10 @@ public class Contact {
 			System.out.println("Sending SMS to " + name + " " + number + " | " + message);
 		}
 	}
+	
+	public void sendWarning(String message) {
+		System.out.println("Sending SMS to " + name + " " + number + " | " + message);
+	}
 
 	public void setNotified(boolean isNotified) {
 		this.isNotified = isNotified;
