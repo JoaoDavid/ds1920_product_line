@@ -1,6 +1,9 @@
 package app;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.addressing.ZirkEndPoint;
@@ -8,10 +11,12 @@ import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 import com.bezirk.middleware.messages.Event;
 import com.bezirk.middleware.messages.EventSet;
 
+import alerts.InactivityAlert;
+import alerts.MovementDetectedAlert;
 import communication.Contact;
 import communication.ContactList;
 import communication.WarningManager;
-import events.ActivityEvent;
+import events.ActivityUpdateEvent;
 import events.ButtonPressEvent;
 import events.LightSignalEvent;
 import events.MovementDetectedEvent;
@@ -21,31 +26,45 @@ public class Controller {
 	private Bezirk bezirk;
 	private ContactList contacts;//TODO must be injected
 	private WarningManager warnMan;
+	private List<MovementDetectedAlert> movAlerts;
+	private List<InactivityAlert> inacAlerts;
 
 	public Controller() {
 		BezirkMiddleware.initialize();
 		bezirk = BezirkMiddleware.registerZirk("Controller");
 		contacts = new ContactList(); //TODO remove afterwards
 		warnMan = new WarningManager();
-		warnMan.addNewWarning("ola", LocalDateTime.of(2019, 12, 26, 18, 50), LocalDateTime.of(2019, 12, 26, 18, 51), 3000, new Contact("teste", 1, true));
+		movAlerts = new ArrayList<MovementDetectedAlert>();
+		movAlerts.add(new MovementDetectedAlert(LocalTime.of(9, 0), LocalTime.of(23, 59), "Cozinha"));
+		warnMan.addNewWarning("ola", LocalDateTime.of(2019, 12, 27, 14, 05), LocalDateTime.of(2019, 12, 27, 14, 06), 10000, new Contact("teste", 1, true));
+		warnMan.addNewWarning("ola", LocalDateTime.of(2019, 12, 27, 14, 04), LocalDateTime.of(2019, 12, 27, 14, 04), 10000, new Contact("teste2", 1, true));
 	}
 		
 	public void subscribeEvents() {
-		final EventSet eventSet = new EventSet(MovementDetectedEvent.class, ButtonPressEvent.class, ActivityEvent.class);
+		final EventSet eventSet = new EventSet(MovementDetectedEvent.class, ButtonPressEvent.class, ActivityUpdateEvent.class);
 
         eventSet.setEventReceiver(new EventSet.EventReceiver() {			
 			@Override
 			public void receiveEvent(Event event, ZirkEndPoint sender) {
 				if(event instanceof MovementDetectedEvent) {
 					MovementDetectedEvent movementDetectedEvent = (MovementDetectedEvent) event;
+					for (MovementDetectedAlert currAlert : movAlerts) {
+						if(currAlert.getLocation().equals(movementDetectedEvent.getLocation()) && 
+								currAlert.happenedBetweenThreshold(movementDetectedEvent.getTime())) {
+							contacts.notifyDefinedContacts(movementDetectedEvent.toString());
+						}
+					}
 					System.out.println(movementDetectedEvent);
 				} else if(event instanceof ButtonPressEvent) {
 					ButtonPressEvent buttonPressEvent = (ButtonPressEvent) event;
 					contacts.notifyDefinedContacts("Button pressed");
 					System.out.println("Button pressed " + buttonPressEvent);
-				} else if(event instanceof ActivityEvent) {
-					ActivityEvent activityEvent = (ActivityEvent) event;
-					System.out.println("Activity Event " + activityEvent);
+				} else if(event instanceof ActivityUpdateEvent) {
+					ActivityUpdateEvent activityEvent = (ActivityUpdateEvent) event;
+					for (InactivityAlert currAlert : inacAlerts) {
+						
+					}
+					System.out.println("Activity Update Event " + activityEvent);
 				}				
 			}
 		});
