@@ -4,24 +4,24 @@ import java.time.LocalTime;
 
 public class Alert {
 	
-	private LocalTime from;
-	private LocalTime to;
+	private LocalTime start;
+	private LocalTime end;
 	
-	public Alert(LocalTime from, LocalTime to) {
-		this.from = from;
-		this.to = to;
+	public Alert(LocalTime start, LocalTime end) {
+		this.start = start;
+		this.end = end;
 	}
 
-	public LocalTime getFrom() {
-		return from;
+	public LocalTime getStart() {
+		return start;
 	}
 
-	public LocalTime getTo() {
-		return to;
+	public LocalTime getEnd() {
+		return end;
 	}	
 	
 	public boolean happenedBetweenThreshold(LocalTime moment) {
-		return moment.isAfter(from) && moment.isBefore(to);
+		return moment.isAfter(start) && moment.isBefore(end);
 	}
 
 }
