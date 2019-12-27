@@ -20,6 +20,7 @@ import events.ActivityUpdateEvent;
 import events.ButtonPressEvent;
 import events.LightSignalEvent;
 import events.MovementDetectedEvent;
+import ui.Screen;
 
 public class Controller {	
 	
@@ -28,6 +29,7 @@ public class Controller {
 	private WarningManager warnMan;
 	private List<MovementDetectedAlert> movAlerts;
 	private List<InactivityAlert> inacAlerts;
+	private Screen screen;
 
 	public Controller() {
 		BezirkMiddleware.initialize();
@@ -38,6 +40,11 @@ public class Controller {
 		movAlerts.add(new MovementDetectedAlert(LocalTime.of(9, 0), LocalTime.of(23, 59), "Cozinha"));
 		warnMan.addNewWarning("ola", LocalDateTime.of(2019, 12, 27, 14, 05), LocalDateTime.of(2019, 12, 27, 14, 06), 10000, new Contact("teste", 1, true));
 		warnMan.addNewWarning("ola", LocalDateTime.of(2019, 12, 27, 14, 04), LocalDateTime.of(2019, 12, 27, 14, 04), 10000, new Contact("teste2", 1, true));
+		screen = new Screen(contacts);
+	}
+	
+	public void startScreen(){
+		this.screen.start();
 	}
 		
 	public void subscribeEvents() {
@@ -78,6 +85,7 @@ public class Controller {
 
 	public static void main(String[] args) {
 		Controller app = new Controller();
+		app.startScreen();
 		app.subscribeEvents();
 		app.sendLightSignal();
 	}
