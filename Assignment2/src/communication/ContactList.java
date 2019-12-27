@@ -26,6 +26,7 @@ public class ContactList {
 		}
 	}
 	
+	//TODO Remover para um aspect
 	public void changeNotifySetting(String name, boolean isNotified) {
 		for (Contact contact : contacts) {
 			if(contact.getName().equals(name)) {
@@ -34,4 +35,16 @@ public class ContactList {
 		}
 	}
 
+	public boolean validateContact(String contactName){
+		for (Contact contact : contacts) {
+			if(contactName.equals(contact.getName())){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public List<Contact> getContacts() {
+		return contacts;
+	}
 }
