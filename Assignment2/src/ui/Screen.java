@@ -5,38 +5,49 @@ import static i18n.Messages.QUIT;
 import static i18n.Messages.UNKNOWN;
 import static i18n.Messages.WARNING;
 
+import java.util.List;
 import java.util.Scanner;
 
-import app.Controller;
+import communication.Contact;
+import communication.ContactList;
 import i18n.I18N;
-public class Screen {
+public class Screen extends Thread implements Runnable{
 	
-	public static String getInput(Scanner in) {
+	private ContactList contacts;
+	
+	public Screen(ContactList contacts){
+		this.contacts = contacts;
+	}
+
+	public String getInput(Scanner in) {
 		return in.nextLine();
 	}
 	
-	public static void main(String[] args){
-		
+	public ContactList getContacts(){
+		return this.contacts;
+	}
+
+	@Override
+	public void run(){
 		Scanner in = new Scanner(System.in);
 		boolean quit = false;
 		String quitInput = I18N.getString(QUIT);
 		String warningInput = I18N.getString(WARNING);
 		//TODO Acrescentar alerta como aspect
 		//TODO Acrescentar edit de contactos como aspect
-		
+
 		while(!quit){
 			System.out.println(I18N.getString(COMMANDS));
 			System.out.println("	-" + quitInput);
 			System.out.println("	-" + warningInput);
-			String command = Screen.getInput(in);
+			String command = getInput(in);
 			if (warningInput.equals(command)) {
-				
+				System.out.println("TEMP: Warning command");
 			} else if (quitInput.equals(command)) {
 				quit = true;
 			} else {
 				System.out.println(I18N.getString(UNKNOWN));
 			}
-		}
-		
+		}		
 	}
 }
