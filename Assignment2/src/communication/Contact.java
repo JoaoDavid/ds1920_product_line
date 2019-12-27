@@ -1,5 +1,11 @@
 package communication;
 
+import static i18n.Messages.C_NAME;
+import static i18n.Messages.C_NUMBER;
+
+import i18n.I18N;
+
+import static i18n.Messages.C_NOTIFIED;
 public class Contact {
 	
 	private String name;
@@ -18,7 +24,8 @@ public class Contact {
 		this.number = number;
 		this.isNotified = isNotified;
 	}
-	
+
+
 	/**
 	 * Send SMS if the contact is set to be notified
 	 * 
@@ -40,6 +47,12 @@ public class Contact {
 
 	public String getName() {
 		return name;
+	}
+	
+	@Override
+	public String toString(){
+		return I18N.getString(C_NAME)+": " + this.name + ", "+I18N.getString(C_NUMBER)+": " + this.number + 
+				", "+ I18N.getString(C_NOTIFIED)+": " + this.isNotified;
 	}
 	
 }
