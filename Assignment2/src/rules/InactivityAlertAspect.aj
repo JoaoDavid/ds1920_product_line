@@ -19,7 +19,7 @@ import app.Controller;
 import i18n.I18N;
 import ui.Screen;
 
-public aspect InactivityAspect {
+public aspect InactivityAlertAspect {
 	private List<InactivityAlert> Controller.inacAlerts = new ArrayList<>();
 	
 	private List<InactivityAlert> Screen.inacAlerts;

@@ -18,7 +18,7 @@ import app.Controller;
 import i18n.I18N;
 import ui.Screen;
 
-public aspect ScreenAspect {
+public aspect MovementAlertAspect {
 	private List<MovementDetectedAlert> Controller.movAlerts = new ArrayList<>();
 	
 	private List<MovementDetectedAlert> Screen.movAlerts;
