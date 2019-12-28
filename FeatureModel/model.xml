@@ -28,6 +28,7 @@
 				<graphics key="collapsed" value="false"/>
 				<feature name="Movimento"/>
 				<feature name="Inatividade"/>
+				<feature name="BotaoPressionado"/>
 			</or>
 			<feature mandatory="true" name="Aviso"/>
 			<feature mandatory="true" name="ListaContactos"/>
@@ -53,11 +54,20 @@
 		</rule>
 		<rule>
 			<imp>
-				<disj>
-					<var>DispositivoVestivel</var>
-					<var>MonitorDeAtividade</var>
-				</disj>
-				<var>Alerta</var>
+				<var>MonitorDeAtividade</var>
+				<var>Inatividade</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>DetetorMovimento</var>
+				<var>Movimento</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Botao</var>
+				<var>BotaoPressionado</var>
 			</imp>
 		</rule>
 	</constraints>

@@ -30,9 +30,6 @@ public aspect ScreenAspect {
 				System.out.println(c.toString());
 			}
 			changeContact(cs);
-		}else if(in.equals(I18N.getString(ALERT))){
-			//TODO fazer caso de editar alertas
-			System.out.println("TEST2");
 		}
 	}
 
