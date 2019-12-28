@@ -1,6 +1,5 @@
 package devices.functionality;
 
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -38,6 +37,6 @@ public class ActivityTracker {
             	lastTimeActive = LocalTime.now();
             	System.err.println("Im moving now " + lastTimeActive);
             }
-        }, 1000, 60000);
+        }, 1000, 60000*60);
 	}
 }
