@@ -48,6 +48,10 @@ public class Controller {
 	public void startScreen(){
 		this.screen.start();
 	}
+	
+	public Screen getScreen(){
+		return this.screen;
+	}
 		
 	public void subscribeEvents() {
 		final EventSet eventSet = new EventSet(MovementDetectedEvent.class, ButtonPressEvent.class, ActivityUpdateEvent.class);
@@ -105,5 +109,4 @@ public class Controller {
 		app.subscribeEvents();
 		app.sendLightSignal();
 	}
-
 }
