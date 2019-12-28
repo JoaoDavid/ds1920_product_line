@@ -9,5 +9,6 @@ public aspect ActivityTrackerAspect {
 	before(): inDevice() && execution(* *.main(..)){
 		ActivityTracker activityTracker = new ActivityTracker();
 		activityTracker.startTrackingActivity();
+		activityTracker.startMoving();
 	}
 }

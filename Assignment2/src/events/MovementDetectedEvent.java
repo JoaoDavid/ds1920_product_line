@@ -4,6 +4,8 @@ import java.time.LocalTime;
 
 import com.bezirk.middleware.messages.Event;
 
+import config.DateTimeFormats;
+
 public class MovementDetectedEvent extends Event {
 
 	/**
@@ -28,6 +30,6 @@ public class MovementDetectedEvent extends Event {
 	}
 	
 	public String toString() {
-		return location + " - " + time;
+		return location + " - " + time.format(DateTimeFormats.FORMATTER_TIME);
 	}
 }

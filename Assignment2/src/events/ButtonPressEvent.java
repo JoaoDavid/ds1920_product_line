@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import com.bezirk.middleware.messages.Event;
 
+import config.DateTimeFormats;
+
 public class ButtonPressEvent extends Event {
 
 	/**
@@ -22,7 +24,7 @@ public class ButtonPressEvent extends Event {
 	}
 	
 	public String toString() {
-		return moment.toString();
+		return moment.format(DateTimeFormats.FORMATTER_DATE_TIME);
 	}
 
 }

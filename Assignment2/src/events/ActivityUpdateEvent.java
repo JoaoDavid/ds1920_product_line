@@ -4,6 +4,8 @@ import java.time.LocalTime;
 
 import com.bezirk.middleware.messages.Event;
 
+import config.DateTimeFormats;
+
 public class ActivityUpdateEvent extends Event {
 
 	/**
@@ -22,7 +24,7 @@ public class ActivityUpdateEvent extends Event {
 	}
 	
 	public String toString() {
-		return lastTimeActive.toString();
+		return lastTimeActive.format(DateTimeFormats.FORMATTER_TIME);
 	}
 
 }

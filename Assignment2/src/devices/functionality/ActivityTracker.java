@@ -28,7 +28,7 @@ public class ActivityTracker {
             	ActivityUpdateEvent activityEvent = new ActivityUpdateEvent(lastTimeActive); 
                 bezirk.sendEvent(activityEvent);
             }
-        }, 1000, 1000);
+        }, 0, 1000);
 	}
 	
 	public void startMoving() {
@@ -38,6 +38,6 @@ public class ActivityTracker {
             	lastTimeActive = LocalTime.now();
             	System.err.println("Im moving now " + lastTimeActive);
             }
-        }, 1000, 36000000);
+        }, 1000, 60000);
 	}
 }
