@@ -1,16 +1,24 @@
 package rules;
 
 import static i18n.Messages.ALERT;
+import static i18n.Messages.CHOOSE_ALERT;
 import static i18n.Messages.CHOOSE_CONTACT;
 import static i18n.Messages.CONTACT;
 import static i18n.Messages.CONTACT_UNAVAILABLE;
-import static i18n.Messages.INSERT_NOTIFICATION;
-import static i18n.Messages.INVALID_NOTIFICATION;
-import static i18n.Messages.CHOOSE_ALERT;
-import static i18n.Messages.MOV_ALERT;
 import static i18n.Messages.INAC_ALERT;
+import static i18n.Messages.INAC_PERIOD;
+import static i18n.Messages.INAC_START;
+import static i18n.Messages.INSERT_NOTIFICATION;
+import static i18n.Messages.INVALID_INAC_PERIOD;
+import static i18n.Messages.INVALID_NOTIFICATION;
+import static i18n.Messages.MOV_ALERT;
 import static i18n.Messages.UNAVAILABLE_ALERT;
+import static i18n.Messages.INVALID_INAC_START;
+import static i18n.Messages.INAC_END;
+import static i18n.Messages.INVALID_INAC_END;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -54,6 +62,10 @@ public aspect ScreenAspect {
 		this.inacAlerts = inacAlerts;
 	}
 	
+	public void Screen.addInacAlert(InactivityAlert a){
+		this.inacAlerts.add(a);
+	}
+	
 	pointcut input(Screen s): target(s) && call(String getInput(*));
 
 	before(Screen s): input(s){
@@ -87,16 +99,50 @@ public aspect ScreenAspect {
 				addMovAlert(s);
 			}else if(aType.equals(I18N.getString(INAC_ALERT))){
 				valid = true;
-				addInacAlert(s);
+				addInacAlert(s, input);
 			}else{
 				System.out.println(I18N.getString(UNAVAILABLE_ALERT));
 			}
 		}
 	}
 
-	private void addInacAlert(Screen s) {
-		// TODO Auto-generated method stub
-		
+	private void addInacAlert(Screen s, Scanner in) {
+		boolean valid = false;
+		int period = 0;
+		LocalTime start = null;
+		LocalTime end = null;
+		while(!valid){
+			System.out.println(I18N.getString(INAC_PERIOD));
+			try{
+				period = Integer.parseInt(in.nextLine());
+				valid = true;
+			}catch(NumberFormatException e){
+				System.out.println(I18N.getString(INVALID_INAC_PERIOD));
+			}
+		}
+		valid = false;
+		while(!valid){
+			System.out.println(I18N.getString(INAC_START));
+			String startPeriod = in.nextLine();
+			try{
+				start = LocalTime.parse(startPeriod);
+				valid = true;
+			}catch(DateTimeParseException e){
+				System.out.println(I18N.getString(INVALID_INAC_START));
+			}
+		}
+		valid = false;
+		while(!valid){
+			System.out.println(I18N.getString(INAC_END));
+			String endPeriod = in.nextLine();
+			try{
+				end = LocalTime.parse(endPeriod);
+				valid = true;
+			}catch(DateTimeParseException e){
+				System.out.println(I18N.getString(INVALID_INAC_END));
+			}
+		}
+		s.addInacAlert(new InactivityAlert(start, end, period));
 	}
 
 	private void addMovAlert(Screen s) {
