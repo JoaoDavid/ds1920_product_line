@@ -37,6 +37,8 @@ public class Controller {
 		contacts = new ContactList(); //TODO remove afterwards
 		warnMan = new WarningManager();
 		movAlerts = new ArrayList<MovementDetectedAlert>();
+		inacAlerts = new ArrayList<InactivityAlert>();
+		inacAlerts.add(new InactivityAlert(LocalTime.of(18, 00), LocalTime.of(22, 00), 1));
 		movAlerts.add(new MovementDetectedAlert(LocalTime.of(9, 0), LocalTime.of(23, 59), "Cozinha"));
 		warnMan.addNewWarning("ola", LocalDateTime.of(2019, 12, 27, 14, 05), LocalDateTime.of(2019, 12, 27, 14, 06), 10000, new Contact("teste", 1, true));
 		warnMan.addNewWarning("ola", LocalDateTime.of(2019, 12, 27, 14, 04), LocalDateTime.of(2019, 12, 27, 14, 04), 10000, new Contact("teste2", 1, true));
@@ -69,7 +71,21 @@ public class Controller {
 				} else if(event instanceof ActivityUpdateEvent) {
 					ActivityUpdateEvent activityEvent = (ActivityUpdateEvent) event;
 					for (InactivityAlert currAlert : inacAlerts) {
-						
+						LocalTime now = LocalTime.now();
+						//esta dentro do intervalo
+						if(currAlert.happenedBetweenThreshold(activityEvent.getLastTimeActive())) {
+							if(currAlert.happenedBetweenThreshold(now) && 
+									now.minusMinutes(currAlert.getDuration()).isAfter(activityEvent.getLastTimeActive())) {
+								contacts.notifyDefinedContacts(activityEvent.toString());
+								System.out.println("entrou 1");
+							}
+						} else if(currAlert.getStart().isAfter(activityEvent.getLastTimeActive())){//esta fora do intervalo
+							if(currAlert.happenedBetweenThreshold(now) && 
+									now.minusMinutes(currAlert.getDuration()).isAfter(currAlert.getStart())) {
+								contacts.notifyDefinedContacts(activityEvent.toString());
+								System.out.println("entrou 2");
+							}
+						}
 					}
 					System.out.println("Activity Update Event " + activityEvent);
 				}				
