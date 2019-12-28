@@ -113,8 +113,12 @@ public class Controller {
 	}
 
 	public static void main(String[] args) {
-		SynthetizedVoice voice = new SynthetizedVoice();
-		voice.speak("caralho isto funciona!");
+		SynthetizedVoice voice = new SynthetizedVoice("pt");
+		voice.playVoice("vamos a praia");
+		voice.playVoice("vamos a praia");
+		voice.playVoice("vamos a praia");
+		voice.playVoice("vamos a praia");
+		voice.start();
 		Controller app = new Controller();
 		app.startScreen();
 		app.subscribeEvents();
