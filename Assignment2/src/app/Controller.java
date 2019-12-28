@@ -21,6 +21,7 @@ import events.ButtonPressEvent;
 import events.LightSignalEvent;
 import events.MovementDetectedEvent;
 import ui.Screen;
+import ui.SynthetizedVoice;
 
 public class Controller {	
 	
@@ -112,6 +113,8 @@ public class Controller {
 	}
 
 	public static void main(String[] args) {
+		SynthetizedVoice voice = new SynthetizedVoice();
+		voice.speak("caralho isto funciona!");
 		Controller app = new Controller();
 		app.startScreen();
 		app.subscribeEvents();
