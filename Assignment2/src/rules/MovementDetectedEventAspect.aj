@@ -1,5 +1,7 @@
 package rules;
 
+import java.time.LocalTime;
+
 import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.messages.Event;
 import com.bezirk.middleware.messages.EventSet;
@@ -19,8 +21,16 @@ public aspect MovementDetectedEventAspect {
 				if(event instanceof MovementDetectedEvent) {
 					MovementDetectedEvent movementDetectedEvent = (MovementDetectedEvent) event;
 					for (MovementDetectedAlert currAlert : c.getMovAlerts()) {
+						LocalTime now = LocalTime.now();
+						if(currAlert.isTriggered()) {
+							if(now.isAfter(currAlert.getEnd())) {
+								currAlert.resetTrigger();
+							}
+							break;
+						}
 						if(currAlert.getLocation().equals(movementDetectedEvent.getLocation()) && 
 								currAlert.happenedBetweenThreshold(movementDetectedEvent.getTime())) {
+							currAlert.trigger();
 							c.getContacts().notifyDefinedContacts(movementDetectedEvent.toString());
 						}
 					}
