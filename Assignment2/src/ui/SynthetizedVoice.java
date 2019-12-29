@@ -13,21 +13,31 @@ public class SynthetizedVoice {
 	//Create a Synthesizer instance
 	private SynthesiserV2 synthesizer;
 	private ConcurrentLinkedQueue<String> queue;
+	
+	private static SynthetizedVoice instance;
 
 	/**
 	 * Constructor
 	 */
-	public SynthetizedVoice(String languageCode) {
+	private SynthetizedVoice(String languageCode) {
 		synthesizer = new SynthesiserV2("AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw");
 		synthesizer.setLanguage(languageCode);
 		queue = new ConcurrentLinkedQueue<String>();
+	}
+	
+	public static SynthetizedVoice getInstance() {
+		if (instance == null)  {
+			instance = new SynthetizedVoice("pt"); //TODO aspecj
+			instance.start();
+		}  
+        return instance; 
 	}
 	
 	public void playVoice(String text) {
 		queue.add(text);
 	}
 
-	public void start() {
+	private void start() {
 		Thread thread = new Thread(() -> {
 			try {
 				while(true) {
