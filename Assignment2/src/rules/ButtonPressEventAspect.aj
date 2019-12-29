@@ -10,8 +10,6 @@ import app.Controller;
 import config.DateTimeFormats;
 import events.ButtonPressEvent;
 import i18n.I18N;
-import ui.LightSignalEmitter;
-import ui.SynthetizedVoice;
 
 public aspect ButtonPressEventAspect {
 
@@ -26,12 +24,15 @@ public aspect ButtonPressEventAspect {
 					ButtonPressEvent buttonPressEvent = (ButtonPressEvent) event;
 					String message = I18N.getString(BUTTON_PRESSED) + " " + buttonPressEvent.getMoment().format(DateTimeFormats.FORMATTER_DATE_TIME);
 					c.getContacts().notifyDefinedContacts(message);
+					c.process(message);
 					System.out.println(message);
-					SynthetizedVoice.getInstance().playVoice(message);
-					LightSignalEmitter.getInstance().sendLightSignal();
 				}	
 			}
 		});
         c.getBezirk().subscribe(eventSet);
+	}
+	
+	public void Controller.process(String msg){
+		//empty method
 	}
 }
