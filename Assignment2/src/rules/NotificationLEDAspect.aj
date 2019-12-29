@@ -1,7 +1,7 @@
 package rules;
 
 import devices.Wearable;
-import devices.functionality.NotificationLED;
+import devices.wearablefeatures.NotificationLED;
 
 public aspect NotificationLEDAspect {
 	

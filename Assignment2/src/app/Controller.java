@@ -7,7 +7,7 @@ import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 
 import communication.Contact;
 import communication.ContactList;
-import communication.WarningManager;
+import communication.warnings.WarningManager;
 import events.LightSignalEvent;
 import ui.Screen;
 import ui.SynthetizedVoice;

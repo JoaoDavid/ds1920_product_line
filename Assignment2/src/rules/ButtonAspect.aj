@@ -1,7 +1,7 @@
 package rules;
 
 import devices.Wearable;
-import devices.functionality.Button;
+import devices.wearablefeatures.Button;
 
 public aspect ButtonAspect {
 	pointcut inDevice(): within(Wearable);

@@ -1,4 +1,4 @@
-package devices.functionality;
+package devices.wearablefeatures;
 
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.addressing.ZirkEndPoint;

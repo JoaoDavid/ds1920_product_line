@@ -6,8 +6,8 @@ import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.messages.Event;
 import com.bezirk.middleware.messages.EventSet;
 
-import alerts.MovementDetectedAlert;
 import app.Controller;
+import communication.alerts.MovementDetectedAlert;
 import events.MovementDetectedEvent;
 
 public aspect MovementDetectedEventAspect {

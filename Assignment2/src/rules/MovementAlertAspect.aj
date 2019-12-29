@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import alerts.MovementDetectedAlert;
 import app.Controller;
+import communication.alerts.MovementDetectedAlert;
 import i18n.I18N;
 import ui.Screen;
 

@@ -1,4 +1,4 @@
-package alerts;
+package communication.alerts;
 
 import java.time.LocalTime;
 

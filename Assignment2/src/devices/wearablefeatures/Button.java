@@ -1,4 +1,4 @@
-package devices.functionality;
+package devices.wearablefeatures;
 
 import java.util.Timer;
 import java.util.TimerTask;

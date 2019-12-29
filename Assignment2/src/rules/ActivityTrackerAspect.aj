@@ -1,7 +1,7 @@
 package rules;
 
 import devices.Wearable;
-import devices.functionality.ActivityTracker;
+import devices.wearablefeatures.ActivityTracker;
 
 public aspect ActivityTrackerAspect {
 	pointcut inDevice(): within(Wearable);

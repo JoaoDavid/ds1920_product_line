@@ -1,4 +1,4 @@
-package devices.functionality;
+package devices.wearablefeatures;
 
 import java.time.LocalTime;
 import java.util.Timer;

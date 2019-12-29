@@ -6,8 +6,8 @@ import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.messages.Event;
 import com.bezirk.middleware.messages.EventSet;
 
-import alerts.InactivityAlert;
 import app.Controller;
+import communication.alerts.InactivityAlert;
 import events.ActivityUpdateEvent;
 
 public aspect ActivityUpdateEventAspect {

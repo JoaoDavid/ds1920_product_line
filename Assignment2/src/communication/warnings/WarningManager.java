@@ -1,10 +1,12 @@
-package communication;
+package communication.warnings;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import communication.Contact;
 
 public class WarningManager {
 	
