@@ -39,8 +39,14 @@ public class SmartLamp {
 	}
 
 	public static void main(String[] args) {
-		SmartLamp smartLamp = new SmartLamp("Bedroom");
-		smartLamp.subscribeLightSingnalEvents();
+		if(args.length == 1) {
+			SmartLamp smartLamp = new SmartLamp(args[0]);
+			smartLamp.subscribeLightSingnalEvents();
+		} else {
+			System.err.println("Add location as argument");
+			System.err.println("example: Bedroom");
+		}	
+		
 	}
 
 }
