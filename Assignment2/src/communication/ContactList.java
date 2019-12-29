@@ -35,9 +35,18 @@ public class ContactList {
 		}
 	}
 
-	public boolean validateContact(String contactName){
+	public boolean validateContactNumber(int number){
 		for (Contact contact : contacts) {
-			if(contactName.equals(contact.getName())){
+			if(number == contact.getNumber()){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean validateContact(String name){
+		for (Contact contact : contacts) {
+			if(name.equals(contact.getName())){
 				return true;
 			}
 		}

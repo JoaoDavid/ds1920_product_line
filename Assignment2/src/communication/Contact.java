@@ -49,6 +49,10 @@ public class Contact {
 		return name;
 	}
 	
+	public int getNumber(){
+		return this.number;
+	}
+	
 	@Override
 	public String toString(){
 		return I18N.getString(C_NAME)+": " + this.name + ", "+I18N.getString(C_NUMBER)+": " + this.number + 
