@@ -1,25 +1,14 @@
 package app;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.bezirk.middleware.Bezirk;
-import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
-import com.bezirk.middleware.messages.Event;
-import com.bezirk.middleware.messages.EventSet;
 
-import alerts.InactivityAlert;
-import alerts.MovementDetectedAlert;
 import communication.Contact;
 import communication.ContactList;
 import communication.WarningManager;
-import events.ActivityUpdateEvent;
-import events.ButtonPressEvent;
 import events.LightSignalEvent;
-import events.MovementDetectedEvent;
 import ui.Screen;
 import ui.SynthetizedVoice;
 
@@ -57,10 +46,6 @@ public class Controller {
 		return this.contacts;
 	}
 	
-	public void subscribeEvents() {
-		//TEST EMPTY METHOD
-	}
-	
 	public void sendLightSignal() {
 		final LightSignalEvent lightSignalEvent = new LightSignalEvent();
         bezirk.sendEvent(lightSignalEvent);
@@ -75,7 +60,6 @@ public class Controller {
 		voice.start();
 		Controller app = new Controller();
 		app.startScreen();
-		app.subscribeEvents();
 		app.sendLightSignal();
 	}
 }

@@ -9,9 +9,9 @@ import app.Controller;
 import events.MovementDetectedEvent;
 
 public aspect MovementDetectedEventAspect {
-	pointcut subscribe(Controller c): target(c) && call(void subscribeEvents());
+	pointcut subscribe(Controller c): target(c) && call(void startScreen());
 	
-	before(Controller c): subscribe(c){
+	after(Controller c): subscribe(c){
 		EventSet eventSet = new EventSet(MovementDetectedEvent.class);
         eventSet.setEventReceiver(new EventSet.EventReceiver() {			
 			@Override

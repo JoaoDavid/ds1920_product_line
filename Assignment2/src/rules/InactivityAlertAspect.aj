@@ -45,17 +45,8 @@ public aspect InactivityAlertAspect {
 	pointcut print(Screen s): target(s) && call(String Screen.chooseAlert(..));
 	
 	before(Screen s): print(s){
-		System.out.println("	-" + I18N.getString(INAC_ALERT));
+		System.out.println(I18N.getString(INAC_ALERT));
 	}
-	
-	/*pointcut input(Screen s, String in): target(s) && args(in) && call(String Screen.process(String));
-	
-	after(Screen s, String in) returning(String out): input(s,in){
-		if(in.equals(I18N.getString(ALERT))){
-			System.out.println(I18N.getString(CHOOSE_ALERT));
-			
-		}
-	}*/
 	
 	after(Screen s) returning(String selection): print(s){
 		if(selection.equals(I18N.getString(INAC_ALERT))){

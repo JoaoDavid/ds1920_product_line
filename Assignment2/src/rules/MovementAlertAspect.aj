@@ -44,7 +44,7 @@ public aspect MovementAlertAspect {
 	pointcut print(Screen s): target(s) && call(String Screen.chooseAlert(..));
 	
 	before(Screen s): print(s){
-		System.out.println("	-" + I18N.getString(MOV_ALERT));
+		System.out.println(I18N.getString(MOV_ALERT));
 	}
 	
 	after(Screen s) returning(String selection): print(s){

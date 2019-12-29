@@ -31,13 +31,11 @@ public class Screen extends Thread implements Runnable{
 		boolean quit = false;
 		String quitInput = I18N.getString(QUIT);
 		String warningInput = I18N.getString(WARNING);
-		//TODO Acrescentar alerta como aspect
-		//TODO Acrescentar edit de contactos como aspect
-
+		
 		while(!quit){
 			System.out.println(I18N.getString(COMMANDS));
-			System.out.println("	-" + quitInput);
-			System.out.println("	-" + warningInput);
+			System.out.println(quitInput);
+			System.out.println(warningInput);
 			String command = getInput(in);
 			if (warningInput.equals(command)) {
 				System.out.println("TEMP: Warning command");

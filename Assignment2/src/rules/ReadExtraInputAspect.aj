@@ -9,7 +9,7 @@ public aspect ReadExtraInputAspect {
 	pointcut input(Screen s): target(s) && call(String getInput(*));
 	
 	before(Screen s): input(s){
-		System.out.println("	-" + I18N.getString(ALERT));
+		System.out.println(I18N.getString(ALERT));
 	}
 	
 	after(Screen s) returning(String in): input(s){

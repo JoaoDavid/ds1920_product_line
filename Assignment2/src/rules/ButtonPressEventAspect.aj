@@ -9,9 +9,9 @@ import events.ButtonPressEvent;
 
 public aspect ButtonPressEventAspect {
 
-	pointcut subscribe(Controller c): target(c) && call(void subscribeEvents());
+	pointcut subscribe(Controller c): target(c) && call(void startScreen());
 	
-	before(Controller c): subscribe(c){
+	after(Controller c): subscribe(c){
 		EventSet eventSet = new EventSet(ButtonPressEvent.class);
         eventSet.setEventReceiver(new EventSet.EventReceiver() {			
 			@Override
