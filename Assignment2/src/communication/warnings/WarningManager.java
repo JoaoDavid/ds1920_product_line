@@ -39,7 +39,6 @@ public class WarningManager {
             	} else {
             		String outputMsg = LocalTime.now().format(DateTimeFormats.FORMATTER_TIME) + " - " + message;
             		LightSignalEmitter.getInstance().sendLightSignal();
-            		SynthetizedVoice.getInstance().playVoice(outputMsg);
             		System.out.println(outputMsg);
             		contact.sendWarning(message);
             	}                
