@@ -53,22 +53,40 @@
 			</imp>
 		</rule>
 		<rule>
-			<imp>
-				<var>MonitorDeAtividade</var>
-				<var>Inatividade</var>
-			</imp>
+			<conj>
+				<imp>
+					<var>MonitorDeAtividade</var>
+					<var>Inatividade</var>
+				</imp>
+				<imp>
+					<var>Inatividade</var>
+					<var>MonitorDeAtividade</var>
+				</imp>
+			</conj>
 		</rule>
 		<rule>
-			<imp>
-				<var>DetetorMovimento</var>
-				<var>Movimento</var>
-			</imp>
+			<conj>
+				<imp>
+					<var>DetetorMovimento</var>
+					<var>Movimento</var>
+				</imp>
+				<imp>
+					<var>Movimento</var>
+					<var>DetetorMovimento</var>
+				</imp>
+			</conj>
 		</rule>
 		<rule>
-			<imp>
-				<var>Botao</var>
-				<var>BotaoPressionado</var>
-			</imp>
+			<conj>
+				<imp>
+					<var>Botao</var>
+					<var>BotaoPressionado</var>
+				</imp>
+				<imp>
+					<var>BotaoPressionado</var>
+					<var>Botao</var>
+				</imp>
+			</conj>
 		</rule>
 	</constraints>
 </featureModel>
