@@ -46,8 +46,9 @@ public aspect ChangeContactAspect {
 					valid = true;
 					ContactList cs = s.getContacts();
 					System.out.println(I18N.getString(CHOOSE_CONTACT));
+					int i = 0;
 					for ( Contact c : cs.getContacts()) {
-						System.out.println(c.toString());
+						System.out.println(i++ + "-" +  c.toString());
 					}
 					changeContact(cs, scan);
 				}else{
@@ -86,7 +87,7 @@ public aspect ChangeContactAspect {
 			boolean valid = false;
 			try{
 				number = Integer.parseInt(in);
-				valid = contacts.validateContactNumber(number);
+				valid = number >= 0 && number < contacts.size();
 			}catch(NumberFormatException e){
 				System.out.println(I18N.getString(C_INVALID_NUMBER));
 				continue;
