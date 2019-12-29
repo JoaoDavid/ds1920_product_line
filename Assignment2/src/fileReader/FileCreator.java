@@ -1,6 +1,7 @@
 package fileReader;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -28,7 +29,13 @@ public class FileCreator {
 		
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document document = builder.parse(new File(xmlFileName+".xml"));
+        Document document = null;
+        try{
+        	document = builder.parse(new File(xmlFileName+".xml"));
+        }catch(FileNotFoundException e){
+        	System.out.println("Ficheiro nao existe.");
+        	return;
+        }
         
         NodeList featureList = document.getElementsByTagName("feature");
         for(int i = 0; i < featureList.getLength(); i++){
@@ -42,7 +49,9 @@ public class FileCreator {
         		removeName(feature,as);
         	}
         }
-        File file = new File("Hola.txt");
+        System.out.println("Inserir nome de ficheiro a criar:");
+        String fileName = in.nextLine();
+        File file = new File(fileName + ".ajproperties");
         FileWriter writer = new FileWriter(file);
         writer.write("src.includes = src/\n");
         writer.write("src.excludes = ");
