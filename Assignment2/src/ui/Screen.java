@@ -5,10 +5,8 @@ import static i18n.Messages.QUIT;
 import static i18n.Messages.UNKNOWN;
 import static i18n.Messages.WARNING;
 
-import java.util.List;
 import java.util.Scanner;
 
-import communication.Contact;
 import communication.ContactList;
 import i18n.I18N;
 public class Screen extends Thread implements Runnable{

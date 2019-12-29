@@ -26,11 +26,11 @@ import ui.SynthetizedVoice;
 public class Controller {	
 	
 	private Bezirk bezirk;
-	private ContactList contacts;//TODO must be injected
+	private ContactList contacts;
 	private WarningManager warnMan;
 	//TODO REMOVE THESE TWO LISTS
-	private List<MovementDetectedAlert> movAlerts;
-	private List<InactivityAlert> inacAlerts;
+	//private List<MovementDetectedAlert> movAlerts;
+	//private List<InactivityAlert> inacAlerts;
 	private Screen screen;
 
 	public Controller() {
@@ -38,10 +38,10 @@ public class Controller {
 		bezirk = BezirkMiddleware.registerZirk("Controller");
 		contacts = new ContactList(); //TODO remove afterwards
 		warnMan = new WarningManager();
-		movAlerts = new ArrayList<MovementDetectedAlert>();
-		inacAlerts = new ArrayList<InactivityAlert>();
-		inacAlerts.add(new InactivityAlert(LocalTime.of(15, 00), LocalTime.of(22, 00), 1));
-		movAlerts.add(new MovementDetectedAlert(LocalTime.of(9, 0), LocalTime.of(23, 59), "Cozinha"));
+		//movAlerts = new ArrayList<MovementDetectedAlert>();
+		//inacAlerts = new ArrayList<InactivityAlert>();
+		//inacAlerts.add(new InactivityAlert(LocalTime.of(15, 00), LocalTime.of(22, 00), 1));
+		//movAlerts.add(new MovementDetectedAlert(LocalTime.of(9, 0), LocalTime.of(23, 59), "Cozinha"));
 		warnMan.addNewWarning("ola", LocalDateTime.of(2019, 12, 27, 14, 05), LocalDateTime.of(2019, 12, 27, 14, 06), 10000, new Contact("teste", 1, true));
 		warnMan.addNewWarning("ola", LocalDateTime.of(2019, 12, 27, 14, 04), LocalDateTime.of(2019, 12, 27, 14, 04), 10000, new Contact("teste2", 1, true));
 		screen = new Screen(contacts);
@@ -64,43 +64,7 @@ public class Controller {
 	}
 	
 	public void subscribeEvents() {
-		final EventSet eventSet = new EventSet(MovementDetectedEvent.class, ButtonPressEvent.class, ActivityUpdateEvent.class);
-
-        eventSet.setEventReceiver(new EventSet.EventReceiver() {			
-			@Override
-			public void receiveEvent(Event event, ZirkEndPoint sender) {
-				if(event instanceof ActivityUpdateEvent) {
-					ActivityUpdateEvent activityEvent = (ActivityUpdateEvent) event;
-					for (InactivityAlert currAlert : inacAlerts) {
-						LocalTime now = LocalTime.now();
-						if(currAlert.isTriggered()) {
-							if(now.isAfter(currAlert.getEnd())) {
-								currAlert.resetTrigger();
-							}
-							break;
-						}
-						//esta dentro do intervalo
-						if(currAlert.happenedBetweenThreshold(activityEvent.getLastTimeActive())) {
-							if(currAlert.happenedBetweenThreshold(now) && 
-									now.minusMinutes(currAlert.getDuration()).isAfter(activityEvent.getLastTimeActive())) {
-								currAlert.trigger();
-								contacts.notifyDefinedContacts("inatividade - " + currAlert.getDuration() + " min - " + currAlert.toString());
-								System.out.println("entrou 1");
-							}
-						} else if(currAlert.getStart().isAfter(activityEvent.getLastTimeActive())){//esta fora do intervalo
-							if(currAlert.happenedBetweenThreshold(now) && 
-									now.minusMinutes(currAlert.getDuration()).isAfter(currAlert.getStart())) {
-								currAlert.trigger();
-								contacts.notifyDefinedContacts("inatividade - " + currAlert.getDuration() + " min - " + currAlert.toString());
-								System.out.println("entrou 2");
-							}
-						}
-					}
-					//System.out.println("Activity Update Event " + activityEvent);
-				}				
-			}
-		});
-        bezirk.subscribe(eventSet);
+		//TEST EMPTY METHOD
 	}
 	
 	public void sendLightSignal() {
