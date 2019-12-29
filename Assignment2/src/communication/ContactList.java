@@ -27,9 +27,9 @@ public class ContactList {
 	}
 	
 	//TODO Remover para um aspect
-	public void changeNotifySetting(String name, boolean isNotified) {
+	public void changeNotifySetting(int number, boolean isNotified) {
 		for (Contact contact : contacts) {
-			if(contact.getName().equals(name)) {
+			if(contact.getNumber() == number) {
 				contact.setNotified(isNotified);
 			}
 		}

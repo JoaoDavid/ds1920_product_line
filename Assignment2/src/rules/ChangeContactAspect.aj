@@ -82,7 +82,15 @@ public aspect ChangeContactAspect {
 		boolean selected = false;
 		while(!selected){
 			String in = input.nextLine();
-			boolean valid = contacts.validateContact(in);
+			int number = 0;
+			boolean valid = false;
+			try{
+				number = Integer.parseInt(in);
+				valid = contacts.validateContactNumber(number);
+			}catch(NumberFormatException e){
+				System.out.println(I18N.getString(C_INVALID_NUMBER));
+				continue;
+			}
 			if(!valid){
 				System.out.println(I18N.getString(CONTACT_UNAVAILABLE));
 			}else{
@@ -93,11 +101,11 @@ public aspect ChangeContactAspect {
 					String setting = input.nextLine().toUpperCase();
 					switch(setting){
 						case "Y":
-							contacts.changeNotifySetting(in, true);
+							contacts.changeNotifySetting(number, true);
 							settingSelected = true;
 							break;
 						case "N":
-							contacts.changeNotifySetting(in, false);
+							contacts.changeNotifySetting(number, false);
 							settingSelected = true;
 							break;
 						default:
