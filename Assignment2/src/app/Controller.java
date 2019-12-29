@@ -28,6 +28,7 @@ public class Controller {
 	private Bezirk bezirk;
 	private ContactList contacts;//TODO must be injected
 	private WarningManager warnMan;
+	//TODO REMOVE THESE TWO LISTS
 	private List<MovementDetectedAlert> movAlerts;
 	private List<InactivityAlert> inacAlerts;
 	private Screen screen;
@@ -54,26 +55,21 @@ public class Controller {
 		return this.screen;
 	}
 		
+	public Bezirk getBezirk(){
+		return this.bezirk;
+	}
+	
+	public ContactList getContacts(){
+		return this.contacts;
+	}
+	
 	public void subscribeEvents() {
 		final EventSet eventSet = new EventSet(MovementDetectedEvent.class, ButtonPressEvent.class, ActivityUpdateEvent.class);
 
         eventSet.setEventReceiver(new EventSet.EventReceiver() {			
 			@Override
 			public void receiveEvent(Event event, ZirkEndPoint sender) {
-				if(event instanceof MovementDetectedEvent) {
-					MovementDetectedEvent movementDetectedEvent = (MovementDetectedEvent) event;
-					for (MovementDetectedAlert currAlert : movAlerts) {
-						if(currAlert.getLocation().equals(movementDetectedEvent.getLocation()) && 
-								currAlert.happenedBetweenThreshold(movementDetectedEvent.getTime())) {
-							contacts.notifyDefinedContacts(movementDetectedEvent.toString());
-						}
-					}
-					System.out.println(movementDetectedEvent);
-				} else if(event instanceof ButtonPressEvent) {
-					ButtonPressEvent buttonPressEvent = (ButtonPressEvent) event;
-					contacts.notifyDefinedContacts("Button pressed");
-					System.out.println("Button pressed " + buttonPressEvent);
-				} else if(event instanceof ActivityUpdateEvent) {
+				if(event instanceof ActivityUpdateEvent) {
 					ActivityUpdateEvent activityEvent = (ActivityUpdateEvent) event;
 					for (InactivityAlert currAlert : inacAlerts) {
 						LocalTime now = LocalTime.now();

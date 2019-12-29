@@ -8,6 +8,6 @@ public aspect ButtonAspect {
 	
 	before(): inDevice() && execution(* *.main(..)){
 		Button button = new Button();
-		button.pressButtonPeriodicly();
+		button.pressButtonPeriodicaly();
 	}
 }

@@ -25,7 +25,7 @@ public class Button {
         System.out.println("Published button press event: " + buttonPressEvent.toString());
     }
 	
-	public void pressButtonPeriodicly(){
+	public void pressButtonPeriodicaly(){
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
