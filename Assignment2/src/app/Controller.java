@@ -25,8 +25,7 @@ public class Controller {
 		bezirk = BezirkMiddleware.registerZirk("Controller");
 		contacts = new ContactList(); //TODO remove afterwards
 		warnMan = new WarningManager();
-		warnMan.addNewWarning("ola", LocalDateTime.of(2019, 12, 27, 14, 05), LocalDateTime.of(2019, 12, 27, 14, 06), 10000, new Contact("teste", 1, true));
-		warnMan.addNewWarning("ola", LocalDateTime.of(2019, 12, 27, 14, 04), LocalDateTime.of(2019, 12, 27, 14, 04), 10000, new Contact("teste2", 1, true));
+		warnMan.addNewWarning("Tomar antibiotico", LocalDateTime.of(2019, 12, 29, 20, 30), LocalDateTime.of(2019, 12, 29, 23, 00), 10000, new Contact("teste", 1, true));
 		screen = new Screen(contacts);
 	}
 	
@@ -46,19 +45,12 @@ public class Controller {
 		return this.contacts;
 	}
 	
-	public void sendLightSignal() {
-		final LightSignalEvent lightSignalEvent = new LightSignalEvent();
-        bezirk.sendEvent(lightSignalEvent);
-	}
-
 	public static void main(String[] args) {
 		SynthetizedVoice voice = SynthetizedVoice.getInstance();
 		voice.playVoice("vamos a praia");
 		voice.playVoice("vamos a praia");
 		voice.playVoice("vamos a praia");
-		voice.playVoice("vamos a praia");
 		Controller app = new Controller();
 		app.startScreen();
-		app.sendLightSignal();
 	}
 }

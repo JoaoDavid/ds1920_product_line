@@ -1,12 +1,16 @@
 package communication.warnings;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import communication.Contact;
+import config.DateTimeFormats;
+import ui.LightSignalEmitter;
+import ui.SynthetizedVoice;
 
 public class WarningManager {
 	
@@ -32,8 +36,11 @@ public class WarningManager {
             public void run() {
             	if(LocalDateTime.now().isAfter(to)) {
             		this.cancel();
-            	} else {          
-            		String message = "08:00 - Tomar antibiótico";
+            	} else {
+            		String outputMsg = LocalTime.now().format(DateTimeFormats.FORMATTER_TIME) + " - " + message;
+            		LightSignalEmitter.getInstance().sendLightSignal();
+            		SynthetizedVoice.getInstance().playVoice(outputMsg);
+            		System.out.println(outputMsg);
             		contact.sendWarning(message);
             	}                
             }
