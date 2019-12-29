@@ -52,12 +52,11 @@ public class Controller {
 	}
 
 	public static void main(String[] args) {
-		SynthetizedVoice voice = new SynthetizedVoice("pt");
+		SynthetizedVoice voice = SynthetizedVoice.getInstance();
 		voice.playVoice("vamos a praia");
 		voice.playVoice("vamos a praia");
 		voice.playVoice("vamos a praia");
 		voice.playVoice("vamos a praia");
-		voice.start();
 		Controller app = new Controller();
 		app.startScreen();
 		app.sendLightSignal();
