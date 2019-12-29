@@ -32,8 +32,13 @@ public class MotionDetector {
 	}
 	
 	public static void main(String[] args) {
-		MotionDetector motionDetector = new MotionDetector("Cozinha");
+		if(args.length == 1) {
+			MotionDetector motionDetector = new MotionDetector(args[0]);
 		motionDetector.startMonitoringMovement();
+		} else {
+			System.err.println("Add location as argument");
+			System.err.println("example: Cozinha");
+		}		
 	}
 
 }

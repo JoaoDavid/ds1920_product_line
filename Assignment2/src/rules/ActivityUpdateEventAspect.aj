@@ -34,14 +34,14 @@ public aspect ActivityUpdateEventAspect {
 									now.minusMinutes(currAlert.getDuration()).isAfter(activityEvent.getLastTimeActive())) {
 								currAlert.trigger();
 								c.getContacts().notifyDefinedContacts("inatividade - " + currAlert.getDuration() + " min - " + currAlert.toString());
-								System.out.println("entrou 1");
+								//System.out.println("entrou 1");
 							}
 						} else if(currAlert.getStart().isAfter(activityEvent.getLastTimeActive())){//esta fora do intervalo
 							if(currAlert.happenedBetweenThreshold(now) && 
 									now.minusMinutes(currAlert.getDuration()).isAfter(currAlert.getStart())) {
 								currAlert.trigger();
 								c.getContacts().notifyDefinedContacts("inatividade - " + currAlert.getDuration() + " min - " + currAlert.toString());
-								System.out.println("entrou 2");
+								//System.out.println("entrou 2");
 							}
 						}
 					}

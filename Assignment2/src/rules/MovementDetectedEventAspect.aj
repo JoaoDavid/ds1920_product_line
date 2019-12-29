@@ -34,7 +34,7 @@ public aspect MovementDetectedEventAspect {
 							c.getContacts().notifyDefinedContacts(movementDetectedEvent.toString());
 						}
 					}
-					System.out.println(movementDetectedEvent);
+					//System.out.println(movementDetectedEvent);
 				}
 			}
 		});
