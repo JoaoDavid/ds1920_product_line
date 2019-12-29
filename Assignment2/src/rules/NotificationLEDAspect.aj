@@ -4,10 +4,12 @@ import devices.Wearable;
 import devices.functionality.NotificationLED;
 
 public aspect NotificationLEDAspect {
-	pointcut inDevice(): within(Wearable);
 	
-	before(): inDevice() && execution(* *.main(..)){
-		NotificationLED notificationLed = new NotificationLED();
-		notificationLed.subscribeLightSingnalEvents();
+	private NotificationLED Wearable.notificationLed = new NotificationLED();
+	
+	pointcut inDevice(Wearable c): target(c) && execution(Wearable.new());
+	
+	after(Wearable c): inDevice(c) {
+		c.notificationLed.subscribeLightSingnalEvents();
 	}
 }

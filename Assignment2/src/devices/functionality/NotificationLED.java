@@ -24,7 +24,6 @@ public class NotificationLED {
 			@Override
 			public void receiveEvent(Event event, ZirkEndPoint sender) {
 				if(event instanceof LightSignalEvent) {
-					//LightSignalEvent lightSignalEvent = (LightSignalEvent) event;
 					System.out.println("Light Signal ");
 				}			
 			}
