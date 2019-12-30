@@ -1,0 +1,7 @@
+src.includes = src/
+src.excludes = src/config/aspects/ActivityTrackerAspect.aj,\
+src/config/aspects/ActivityUpdateEventAspect.aj,\
+src/config/aspects/InactivityAlertAspect.aj,\
+src/config/aspects/NotificationLEDAspect.aj,\
+src/config/i18n/pt_PT.aj,\
+src/config/aspects/LightSignalEventAspect.aj,\

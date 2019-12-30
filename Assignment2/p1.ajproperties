@@ -1,0 +1,10 @@
+src.includes = src/
+src.excludes = src/config/aspects/ActivityTrackerAspect.aj,\
+src/config/aspects/ActivityUpdateEventAspect.aj,\
+src/config/aspects/AlertSelectorAspect.aj,\
+src/config/aspects/InactivityAlertAspect.aj,\
+src/config/aspects/MovementAlertAspect.aj,\
+src/config/aspects/MovementDetectedEventAspect.aj,\
+src/config/aspects/ReadExtraInputAspect.aj,\
+src/config/i18n/en_US.aj,\
+src/config/aspects/SynthetizedVoiceAspect.aj,\

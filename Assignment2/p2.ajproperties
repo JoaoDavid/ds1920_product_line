@@ -1,0 +1,8 @@
+src.includes = src/
+src.excludes = src/config/aspects/ButtonAspect.aj,\
+src/config/aspects/ButtonPressEventAspect.aj,\
+src/config/aspects/MovementAlertAspect.aj,\
+src/config/aspects/MovementDetectedEventAspect.aj,\
+src/config/aspects/NotificationLEDAspect.aj,\
+src/config/i18n/en_US.aj,\
+src/config/aspects/LightSignalEventAspect.aj,\
