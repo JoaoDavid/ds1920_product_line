@@ -48,4 +48,8 @@ public class ContactList {
 	public List<Contact> getContacts() {
 		return contacts;
 	}
+	
+	public Contact getContactByIndex(int i){
+		return contacts.get(i);
+	}
 }

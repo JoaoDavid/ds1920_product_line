@@ -17,7 +17,7 @@
 				<feature name="Inglês"/>
 			</alt>
 			<feature mandatory="true" name="Ecra"/>
-			<or mandatory="true" name="Output">
+			<or name="Output">
 				<graphics key="collapsed" value="false"/>
 				<feature name="VozSintetizada"/>
 				<feature name="SinaisDeLuzes">
@@ -32,7 +32,7 @@
 			</or>
 			<feature mandatory="true" name="Aviso"/>
 			<feature mandatory="true" name="ListaContactos"/>
-			<feature mandatory="true" name="EnvioMensagem"/>
+			<feature mandatory="true" name="EnvioSMS"/>
 			<or name="DispositivoVestivel">
 				<feature name="Botao"/>
 				<feature name="MonitorDeAtividade"/>

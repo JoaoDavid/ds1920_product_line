@@ -2,7 +2,6 @@ package config.spl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +33,7 @@ public class FileCreator {
         	document = builder.parse(new File(xmlFileName+".xml"));
         }catch(FileNotFoundException e){
         	System.out.println("Ficheiro nao existe.");
+        	in.close();
         	return;
         }
         
