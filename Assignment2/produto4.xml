@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="App"/>
+	<feature automatic="selected" name="Idioma"/>
+	<feature automatic="unselected" name="Português"/>
+	<feature manual="selected" name="Inglês"/>
+	<feature automatic="selected" manual="selected" name="Ecra"/>
+	<feature automatic="selected" name="Output"/>
+	<feature manual="selected" name="VozSintetizada"/>
+	<feature name="SinaisDeLuzes"/>
+	<feature automatic="selected" name="Alerta"/>
+	<feature manual="selected" name="Movimento"/>
+	<feature name="Inatividade"/>
+	<feature manual="selected" name="BotaoPressionado"/>
+	<feature automatic="selected" name="Aviso"/>
+	<feature automatic="selected" name="ListaContactos"/>
+	<feature automatic="selected" name="EnvioSMS"/>
+	<feature automatic="selected" name="DispositivoVestivel"/>
+	<feature automatic="selected" name="Botao"/>
+	<feature name="MonitorDeAtividade"/>
+	<feature name="IndicadorLuminoso"/>
+	<feature name="LampadasInteligentes"/>
+	<feature automatic="selected" name="DetetorMovimento"/>
+</configuration>

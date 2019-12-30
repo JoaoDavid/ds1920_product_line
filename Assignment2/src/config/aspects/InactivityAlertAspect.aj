@@ -24,7 +24,7 @@ public aspect InactivityAlertAspect {
 	
 	private List<InactivityAlert> Screen.inacAlerts;
 	
-	pointcut start(Controller c): within(Controller) && target(c) && call(void startScreen(..));
+	pointcut start(Controller c): target(c) && call(void startScreen(..));
 	
 	before(Controller c): start(c){
 		c.getScreen().setInacAlerts(c.getInacAlerts());
@@ -40,6 +40,10 @@ public aspect InactivityAlertAspect {
 	
 	public void Screen.addInacAlert(InactivityAlert a){
 		this.inacAlerts.add(a);
+	}
+	
+	public List<InactivityAlert> Screen.getInacAlerts(){
+		return this.inacAlerts;
 	}
 	
 	pointcut print(Screen s): target(s) && call(String Screen.chooseAlert(..));
@@ -68,7 +72,9 @@ public aspect InactivityAlertAspect {
 		}
 		LocalTime start = getPeriod(in,I18N.getString(INAC_START),I18N.getString(INVALID_INAC_START));
 		LocalTime end = getPeriod(in,I18N.getString(INAC_END),I18N.getString(INVALID_INAC_END));
-		s.addInacAlert(new InactivityAlert(start, end, period));
+		synchronized(s.getInacAlerts()){
+			s.addInacAlert(new InactivityAlert(start, end, period));	
+		}
 	}
 	
 	private LocalTime getPeriod(Scanner in, String command, String fail){

@@ -14,7 +14,6 @@ import static config.i18n.Messages.WARNING_DATE_TO;
 import static config.i18n.Messages.WARNING_NAME;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 

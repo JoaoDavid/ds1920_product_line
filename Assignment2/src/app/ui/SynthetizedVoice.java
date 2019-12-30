@@ -5,6 +5,8 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.darkprograms.speech.synthesiser.SynthesiserV2;
 
+import config.i18n.I18N;
+import config.i18n.Messages;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 
@@ -27,7 +29,7 @@ public class SynthetizedVoice {
 	
 	public static SynthetizedVoice getInstance() {
 		if (instance == null)  {
-			instance = new SynthetizedVoice("pt"); //TODO aspecj
+			instance = new SynthetizedVoice(I18N.getString(Messages.LANGUAGE));
 			instance.start();
 		}  
         return instance; 

@@ -23,7 +23,7 @@ public aspect MovementAlertAspect {
 	
 	private List<MovementDetectedAlert> Screen.movAlerts;
 
-	pointcut start(Controller c): within(Controller) && target(c) && call(void startScreen(..));
+	pointcut start(Controller c): target(c) && call(void startScreen(..));
 	
 	before(Controller c): start(c){
 		c.getScreen().setMovAlerts(c.getMovAlerts());
@@ -39,6 +39,10 @@ public aspect MovementAlertAspect {
 	
 	public void Screen.addMovAlert(MovementDetectedAlert a){
 		this.movAlerts.add(a);
+	}
+	
+	public List<MovementDetectedAlert> Screen.getMovAlerts(){
+		return this.movAlerts;
 	}
 	
 	pointcut print(Screen s): target(s) && call(String Screen.chooseAlert(..));
@@ -58,7 +62,9 @@ public aspect MovementAlertAspect {
 		String  place = in.nextLine();
 		LocalTime start = getPeriod(in,I18N.getString(MOV_START),I18N.getString(INVALID_MOV_START));
 		LocalTime end = getPeriod(in,I18N.getString(MOV_END),I18N.getString(INVALID_MOV_END));
-		s.addMovAlert(new MovementDetectedAlert(start, end, place));
+		synchronized(s.getMovAlerts()){
+			s.addMovAlert(new MovementDetectedAlert(start, end, place));	
+		}
 	}
 	
 	private LocalTime getPeriod(Scanner in, String command, String fail){
