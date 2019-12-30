@@ -42,4 +42,8 @@ public class Controller {
 	public ContactList getContacts(){
 		return this.contacts;
 	}
+	
+	public void process(String msg){
+		//emoty
+	}
 }

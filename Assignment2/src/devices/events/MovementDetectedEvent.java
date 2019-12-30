@@ -1,10 +1,13 @@
 package devices.events;
 
+import static config.i18n.Messages.MOV_LOCATION;
+
 import java.time.LocalTime;
 
 import com.bezirk.middleware.messages.Event;
 
 import config.DateTimeFormats;
+import config.i18n.I18N;
 
 public class MovementDetectedEvent extends Event {
 
@@ -30,6 +33,6 @@ public class MovementDetectedEvent extends Event {
 	}
 	
 	public String toString() {
-		return location + " - " + time.format(DateTimeFormats.FORMATTER_TIME);
+		return I18N.getString(MOV_LOCATION) +" "+ location + " - " + time.format(DateTimeFormats.FORMATTER_TIME);
 	}
 }

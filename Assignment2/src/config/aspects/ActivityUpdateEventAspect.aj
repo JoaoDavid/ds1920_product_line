@@ -8,6 +8,8 @@ import com.bezirk.middleware.messages.EventSet;
 
 import app.Controller;
 import communication.alerts.InactivityAlert;
+import config.i18n.I18N;
+import config.i18n.Messages;
 import devices.events.ActivityUpdateEvent;
 
 public aspect ActivityUpdateEventAspect {
@@ -34,14 +36,18 @@ public aspect ActivityUpdateEventAspect {
 								if(currAlert.happenedBetweenThreshold(now) && 
 										now.minusMinutes(currAlert.getDuration()).isAfter(activityEvent.getLastTimeActive())) {
 									currAlert.trigger();
-									c.getContacts().notifyDefinedContacts("inatividade - " + currAlert.getDuration() + " min - " + currAlert.toString());
+									String msg = I18N.getString(Messages.INACTIVITY) + currAlert.getDuration() + " min - " + currAlert.toString();
+									c.getContacts().notifyDefinedContacts(msg);
+									c.process(msg);
 									//System.out.println("entrou 1");
 								}
 							} else if(currAlert.getStart().isAfter(activityEvent.getLastTimeActive())){//esta fora do intervalo
 								if(currAlert.happenedBetweenThreshold(now) && 
 										now.minusMinutes(currAlert.getDuration()).isAfter(currAlert.getStart())) {
 									currAlert.trigger();
-									c.getContacts().notifyDefinedContacts("inatividade - " + currAlert.getDuration() + " min - " + currAlert.toString());
+									String msg = I18N.getString(Messages.INACTIVITY) + currAlert.getDuration() + " min - " + currAlert.toString();
+									c.getContacts().notifyDefinedContacts(msg);
+									c.process(msg);
 									//System.out.println("entrou 2");
 								}
 							}

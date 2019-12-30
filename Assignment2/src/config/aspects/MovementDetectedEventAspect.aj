@@ -33,10 +33,10 @@ public aspect MovementDetectedEventAspect {
 									currAlert.happenedBetweenThreshold(movementDetectedEvent.getTime())) {
 								currAlert.trigger();
 								c.getContacts().notifyDefinedContacts(movementDetectedEvent.toString());
+								c.process(movementDetectedEvent.toString());
 							}
 						}
 					}
-					
 				}
 			}
 		});

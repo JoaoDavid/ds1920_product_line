@@ -31,8 +31,4 @@ public aspect ButtonPressEventAspect {
 		});
         c.getBezirk().subscribe(eventSet);
 	}
-	
-	public void Controller.process(String msg){
-		//empty method
-	}
 }
