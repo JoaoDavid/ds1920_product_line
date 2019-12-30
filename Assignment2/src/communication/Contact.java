@@ -1,11 +1,10 @@
 package communication;
 
-import static i18n.Messages.C_NAME;
-import static i18n.Messages.C_NUMBER;
+import static config.i18n.Messages.C_NAME;
+import static config.i18n.Messages.C_NOTIFIED;
+import static config.i18n.Messages.C_NUMBER;
 
-import i18n.I18N;
-
-import static i18n.Messages.C_NOTIFIED;
+import config.i18n.I18N;
 public class Contact {
 	
 	private String name;

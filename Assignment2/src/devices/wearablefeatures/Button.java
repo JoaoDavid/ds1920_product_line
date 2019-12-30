@@ -6,7 +6,7 @@ import java.util.TimerTask;
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 
-import events.ButtonPressEvent;
+import devices.events.ButtonPressEvent;
 
 
 public class Button {

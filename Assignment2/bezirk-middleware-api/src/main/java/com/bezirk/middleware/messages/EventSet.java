@@ -28,9 +28,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Class used to create a set of {@link Event events} to subscribe to. Extend this set to design an
- * interface declaring the events to subscribe to; otherwise, directly instantiate it to subscribe
- * to a small set of ad hoc events. See {@link MessageSet} for examples.
+ * Class used to create a set of {@link Event devices.events} to subscribe to. Extend this set to design an
+ * interface declaring the devices.events to subscribe to; otherwise, directly instantiate it to subscribe
+ * to a small set of ad hoc devices.events. See {@link MessageSet} for examples.
  */
 public class EventSet extends MessageSet {
     private static final long serialVersionUID = 3824727820246453131L;
@@ -55,7 +55,7 @@ public class EventSet extends MessageSet {
     /**
      * Set the listener that will be notified when an <code>Event</code> in this set is received
      * after subscription. Set this listener before calling
-     * {@link com.bezirk.middleware.Bezirk#subscribe(MessageSet)}, otherwise events
+     * {@link com.bezirk.middleware.Bezirk#subscribe(MessageSet)}, otherwise devices.events
      * may be missed.
      * <pre>
      *     // Create the Event set

@@ -54,7 +54,7 @@ public abstract class Message implements Serializable {
     }
 
     /**
-     * This method should be only used if the Zirk needs to provide a custom Gson adapter via the <code>gsonBuilder</code>for deserializing its events.
+     * This method should be only used if the Zirk needs to provide a custom Gson adapter via the <code>gsonBuilder</code>for deserializing its devices.events.
      * This is especially useful if the event has abstract type(s) as its instance variables which need to be serialized.
      * It can be achieved by supplying the builder with Gson's RuntimeTypeAdapterFactory.
      * For an interface <code>Interface</code> with implementations as <code>Implementation1</code> and <code>Implementation1</code>, the builder would look something like this:
@@ -67,7 +67,7 @@ public abstract class Message implements Serializable {
      *     builder.registerTypeAdapterFactory(interfaceAdapter);
      *
      *     //set builder
-     *     Message.setGsonBuilder(builder); //ensure the builder is set before sending/receiving bezirk events
+     *     Message.setGsonBuilder(builder); //ensure the builder is set before sending/receiving bezirk devices.events
      *
      * </pre>
      *

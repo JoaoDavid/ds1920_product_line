@@ -50,7 +50,7 @@ import java.util.UUID;
  *              super(HvacObservation.class, SeatObservation.class,
  *              MirrorObservation.class, BrakeObservation.class,
  *              RadioObservation.class,
- *              /* imagine many more events here *&#47;);
+ *              /* imagine many more devices.events here *&#47;);
  *         }
  *     }
  * </pre>

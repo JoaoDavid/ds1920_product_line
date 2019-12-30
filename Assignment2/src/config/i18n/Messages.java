@@ -1,4 +1,4 @@
-package i18n;
+package config.i18n;
 
 public enum Messages {
 	QUIT,COMMANDS,WARNING,UNKNOWN,ALERT,CONTACT,CHOOSE_CONTACT,CONTACT_UNAVAILABLE,

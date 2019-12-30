@@ -1,12 +1,12 @@
-package rules;
+package config.aspects;
 
-import static i18n.Messages.INAC_ALERT;
-import static i18n.Messages.INAC_END;
-import static i18n.Messages.INAC_PERIOD;
-import static i18n.Messages.INAC_START;
-import static i18n.Messages.INVALID_INAC_END;
-import static i18n.Messages.INVALID_INAC_PERIOD;
-import static i18n.Messages.INVALID_INAC_START;
+import static config.i18n.Messages.INAC_ALERT;
+import static config.i18n.Messages.INAC_END;
+import static config.i18n.Messages.INAC_PERIOD;
+import static config.i18n.Messages.INAC_START;
+import static config.i18n.Messages.INVALID_INAC_END;
+import static config.i18n.Messages.INVALID_INAC_PERIOD;
+import static config.i18n.Messages.INVALID_INAC_START;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
@@ -15,9 +15,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import app.Controller;
+import app.ui.Screen;
 import communication.alerts.InactivityAlert;
-import i18n.I18N;
-import ui.Screen;
+import config.i18n.I18N;
 
 public aspect InactivityAlertAspect {
 	private List<InactivityAlert> Controller.inacAlerts = new ArrayList<>();

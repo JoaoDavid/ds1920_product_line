@@ -1,12 +1,12 @@
-package rules;
+package config.aspects;
 
-import static i18n.Messages.ALERT;
-import static i18n.Messages.CHOOSE_ALERT;
+import static config.i18n.Messages.ALERT;
+import static config.i18n.Messages.CHOOSE_ALERT;
 
 import java.util.Scanner;
 
-import i18n.I18N;
-import ui.Screen;
+import app.ui.Screen;
+import config.i18n.I18N;
 
 public aspect AlertSelectorAspect {
 	

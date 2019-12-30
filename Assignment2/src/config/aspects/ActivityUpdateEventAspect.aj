@@ -1,4 +1,4 @@
-package rules;
+package config.aspects;
 
 import java.time.LocalTime;
 
@@ -8,7 +8,7 @@ import com.bezirk.middleware.messages.EventSet;
 
 import app.Controller;
 import communication.alerts.InactivityAlert;
-import events.ActivityUpdateEvent;
+import devices.events.ActivityUpdateEvent;
 
 public aspect ActivityUpdateEventAspect {
 	pointcut subscribe(Controller c): target(c) && call(void startScreen());

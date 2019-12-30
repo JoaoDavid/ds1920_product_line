@@ -7,7 +7,7 @@ import java.util.TimerTask;
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 
-import events.ActivityUpdateEvent;
+import devices.events.ActivityUpdateEvent;
 
 public class ActivityTracker {
 	

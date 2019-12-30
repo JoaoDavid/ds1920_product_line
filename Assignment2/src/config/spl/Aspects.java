@@ -1,4 +1,4 @@
-package fileReader;
+package config.spl;
 
 import java.util.Arrays;
 import java.util.List;

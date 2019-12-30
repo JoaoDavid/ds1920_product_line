@@ -56,7 +56,7 @@ public interface Bezirk {
     void unregisterZirk();
 
     /**
-     * Begin receiving the events or streams included in <code>messageSet</code>. Translating
+     * Begin receiving the devices.events or streams included in <code>messageSet</code>. Translating
      * the concept to the pub-sub model, this method is how Zirks subscribe to topics.
      *
      * @param messageSet a declaration of the messages the registered Zirk will receive

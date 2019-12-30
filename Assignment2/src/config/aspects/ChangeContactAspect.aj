@@ -1,26 +1,25 @@
-package rules;
+package config.aspects;
 
-import static i18n.Messages.CHOOSE_CONTACT;
-import static i18n.Messages.CONTACT;
-import static i18n.Messages.CONTACT_UNAVAILABLE;
-import static i18n.Messages.INSERT_NOTIFICATION;
-import static i18n.Messages.INVALID_NOTIFICATION;
-import static i18n.Messages.CONTACT_OPERATION;
-import static i18n.Messages.C_ADD_OP;
-import static i18n.Messages.C_EDIT_OP;
-import static i18n.Messages.C_INVALID_OP;
-import static i18n.Messages.C_ENTER_NAME;
-import static i18n.Messages.C_ENTER_NUMBER;
-import static i18n.Messages.C_NUMBER_EXISTS;
-import static i18n.Messages.C_INVALID_NUMBER;
-
+import static config.i18n.Messages.CHOOSE_CONTACT;
+import static config.i18n.Messages.CONTACT;
+import static config.i18n.Messages.CONTACT_OPERATION;
+import static config.i18n.Messages.CONTACT_UNAVAILABLE;
+import static config.i18n.Messages.C_ADD_OP;
+import static config.i18n.Messages.C_EDIT_OP;
+import static config.i18n.Messages.C_ENTER_NAME;
+import static config.i18n.Messages.C_ENTER_NUMBER;
+import static config.i18n.Messages.C_INVALID_NUMBER;
+import static config.i18n.Messages.C_INVALID_OP;
+import static config.i18n.Messages.C_NUMBER_EXISTS;
+import static config.i18n.Messages.INSERT_NOTIFICATION;
+import static config.i18n.Messages.INVALID_NOTIFICATION;
 
 import java.util.Scanner;
 
+import app.ui.Screen;
 import communication.Contact;
 import communication.ContactList;
-import i18n.I18N;
-import ui.Screen;
+import config.i18n.I18N;
 
 public aspect ChangeContactAspect {
 

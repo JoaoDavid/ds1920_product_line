@@ -1,9 +1,9 @@
-package ui;
+package app.ui;
 
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 
-import events.LightSignalEvent;
+import devices.events.LightSignalEvent;
 
 public class LightSignalEmitter {
 	

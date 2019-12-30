@@ -1,4 +1,4 @@
-package i18n;
+package config.i18n;
 
 public aspect en_US {
 	before() : execution(* *.main(..)){

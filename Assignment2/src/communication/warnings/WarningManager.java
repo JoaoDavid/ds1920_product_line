@@ -7,10 +7,10 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import app.ui.LightSignalEmitter;
+import app.ui.SynthetizedVoice;
 import communication.Contact;
 import config.DateTimeFormats;
-import ui.LightSignalEmitter;
-import ui.SynthetizedVoice;
 
 public class WarningManager {
 	

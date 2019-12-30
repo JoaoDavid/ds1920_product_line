@@ -1,4 +1,4 @@
-package ui;
+package app.ui;
 
 import java.io.IOException;
 import java.util.concurrent.ConcurrentLinkedQueue;

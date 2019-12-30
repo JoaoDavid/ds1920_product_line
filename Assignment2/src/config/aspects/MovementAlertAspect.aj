@@ -1,11 +1,11 @@
-package rules;
+package config.aspects;
 
-import static i18n.Messages.INVALID_MOV_END;
-import static i18n.Messages.INVALID_MOV_START;
-import static i18n.Messages.MOV_ALERT;
-import static i18n.Messages.MOV_END;
-import static i18n.Messages.MOV_PLACE;
-import static i18n.Messages.MOV_START;
+import static config.i18n.Messages.INVALID_MOV_END;
+import static config.i18n.Messages.INVALID_MOV_START;
+import static config.i18n.Messages.MOV_ALERT;
+import static config.i18n.Messages.MOV_END;
+import static config.i18n.Messages.MOV_PLACE;
+import static config.i18n.Messages.MOV_START;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
@@ -14,9 +14,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import app.Controller;
+import app.ui.Screen;
 import communication.alerts.MovementDetectedAlert;
-import i18n.I18N;
-import ui.Screen;
+import config.i18n.I18N;
 
 public aspect MovementAlertAspect {
 	private List<MovementDetectedAlert> Controller.movAlerts = new ArrayList<>();

@@ -1,6 +1,6 @@
-package rules;
+package config.aspects;
 
-import static i18n.Messages.BUTTON_PRESSED;
+import static config.i18n.Messages.BUTTON_PRESSED;
 
 import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.messages.Event;
@@ -8,8 +8,8 @@ import com.bezirk.middleware.messages.EventSet;
 
 import app.Controller;
 import config.DateTimeFormats;
-import events.ButtonPressEvent;
-import i18n.I18N;
+import config.i18n.I18N;
+import devices.events.ButtonPressEvent;
 
 public aspect ButtonPressEventAspect {
 

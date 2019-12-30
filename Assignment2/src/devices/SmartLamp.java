@@ -6,7 +6,7 @@ import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 import com.bezirk.middleware.messages.Event;
 import com.bezirk.middleware.messages.EventSet;
 
-import events.LightSignalEvent;
+import devices.events.LightSignalEvent;
 
 public class SmartLamp {
 	

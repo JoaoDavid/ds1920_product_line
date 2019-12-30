@@ -1,4 +1,4 @@
-package rules;
+package config.aspects;
 
 import devices.Wearable;
 import devices.wearablefeatures.ActivityTracker;

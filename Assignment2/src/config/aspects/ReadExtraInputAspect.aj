@@ -1,9 +1,9 @@
-package rules;
+package config.aspects;
 
-import static i18n.Messages.ALERT;
+import static config.i18n.Messages.ALERT;
 
-import i18n.I18N;
-import ui.Screen;
+import app.ui.Screen;
+import config.i18n.I18N;
 
 public aspect ReadExtraInputAspect {
 	pointcut input(Screen s): target(s) && call(String getInput(*));

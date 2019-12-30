@@ -1,14 +1,14 @@
-package ui;
+package app.ui;
 
-import static i18n.Messages.COMMANDS;
-import static i18n.Messages.QUIT;
-import static i18n.Messages.UNKNOWN;
-import static i18n.Messages.WARNING;
+import static config.i18n.Messages.COMMANDS;
+import static config.i18n.Messages.QUIT;
+import static config.i18n.Messages.UNKNOWN;
+import static config.i18n.Messages.WARNING;
 
 import java.util.Scanner;
 
 import communication.ContactList;
-import i18n.I18N;
+import config.i18n.I18N;
 public class Screen extends Thread implements Runnable{
 	
 	private ContactList contacts;

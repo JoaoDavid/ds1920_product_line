@@ -1,8 +1,8 @@
-package rules;
+package config.aspects;
 
 import app.Controller;
+import app.ui.SynthetizedVoice;
 import communication.Contact;
-import ui.SynthetizedVoice;
 
 public aspect SynthetizedVoiceAspect {
 	pointcut sendEvent(Controller c, String msg): target(c) && args(msg) && call(void Controller.process(String));

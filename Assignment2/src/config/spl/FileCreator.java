@@ -1,4 +1,4 @@
-package fileReader;
+package config.spl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -56,7 +56,7 @@ public class FileCreator {
         writer.write("src.includes = src/\n");
         writer.write("src.excludes = ");
         for (String string : as) {
-			writer.write("src/rules/"+string+ ",\\\n");
+			writer.write("src/config.aspects/"+string+ ",\\\n");
 		}
         writer.close();
         in.close();

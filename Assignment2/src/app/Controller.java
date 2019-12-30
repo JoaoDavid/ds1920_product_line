@@ -5,12 +5,12 @@ import java.time.LocalDateTime;
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 
+import app.ui.Screen;
+import app.ui.SynthetizedVoice;
 import communication.Contact;
 import communication.ContactList;
 import communication.warnings.WarningManager;
-import events.LightSignalEvent;
-import ui.Screen;
-import ui.SynthetizedVoice;
+import devices.events.LightSignalEvent;
 
 public class Controller {	
 	

@@ -1,4 +1,4 @@
-package events;
+package devices.events;
 
 import com.bezirk.middleware.messages.Event;
 
