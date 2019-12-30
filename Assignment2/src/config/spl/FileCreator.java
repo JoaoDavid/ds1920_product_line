@@ -56,7 +56,11 @@ public class FileCreator {
         writer.write("src.includes = src/\n");
         writer.write("src.excludes = ");
         for (String string : as) {
-			writer.write("src/config.aspects/"+string+ ",\\\n");
+        	if(string.equals("pt_PT.aj") || string.equals("en_US.aj")){
+    			writer.write("src/config/i18n/"+string+ ",\\\n");	
+        	}else{
+    			writer.write("src/config/aspects/"+string+ ",\\\n");	
+        	}
 		}
         writer.close();
         in.close();
