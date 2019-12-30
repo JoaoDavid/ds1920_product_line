@@ -36,7 +36,7 @@ public aspect ActivityUpdateEventAspect {
 								if(currAlert.happenedBetweenThreshold(now) && 
 										now.minusMinutes(currAlert.getDuration()).isAfter(activityEvent.getLastTimeActive())) {
 									currAlert.trigger();
-									String msg = I18N.getString(Messages.INACTIVITY) + currAlert.getDuration() + " min - " + currAlert.toString();
+									String msg = I18N.getString(Messages.INACTIVITY) + " "+ currAlert.getDuration() + " min - " + currAlert.toString();
 									c.getContacts().notifyDefinedContacts(msg);
 									c.process(msg);
 									//System.out.println("entrou 1");
@@ -45,7 +45,7 @@ public aspect ActivityUpdateEventAspect {
 								if(currAlert.happenedBetweenThreshold(now) && 
 										now.minusMinutes(currAlert.getDuration()).isAfter(currAlert.getStart())) {
 									currAlert.trigger();
-									String msg = I18N.getString(Messages.INACTIVITY) + currAlert.getDuration() + " min - " + currAlert.toString();
+									String msg = I18N.getString(Messages.INACTIVITY) + " " + currAlert.getDuration() + " min - " + currAlert.toString();
 									c.getContacts().notifyDefinedContacts(msg);
 									c.process(msg);
 									//System.out.println("entrou 2");

@@ -28,7 +28,7 @@ public class MotionDetector {
             	MovementDetectedEvent movementDetectedEvent = 
                 		new MovementDetectedEvent(location); 
                 bezirk.sendEvent(movementDetectedEvent);
-                System.out.println(I18N.getString(Messages.PUBLISHED) + movementDetectedEvent);
+                System.out.println(I18N.getString(Messages.PUBLISHED) + " " + movementDetectedEvent);
             }
         }, 1000, 5000);
 	}
