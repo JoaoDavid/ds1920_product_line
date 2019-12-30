@@ -1,0 +1,6 @@
+Seguem-se as instruções para executar o projeto:
+	1.Escolher as features requeridas no default.xml do projeto FeatureModel
+	2.Gravar as alterações e exportar para o projeto Assignment2
+	3.Executar o programa FileCreator.java e seguir as instruções
+	4.Após gerado o ficheiro .ajproperties fazer as seguintes operações sobre o ficheiro: RMB -> AspectJ Tools -> Apply Build Configurations
+	5.Executar o App e os dispositivos que sejam relevantes das features escolhidas (se for executada um dispositivo cuja feature não foi escolhida, os eventos que o dispositivo publica não serão detetados pela aplicação)
